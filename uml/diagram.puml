@@ -1,0 +1,21 @@
+'@startuml'
+title Strategy pattern — TextTransformer
+
+interface TextStrategy {
+  +transform(text: String): String
+}
+
+class UpperCaseStrategy
+class ReverseStrategy
+class Rot13Strategy
+class LeetStrategy
+class TextTransformer
+
+TextTransformer ..|> TextStrategy : uses
+TextTransformer o-- "1" TextStrategy : strategy
+TextTransformer --> UpperCaseStrategy
+TextTransformer --> ReverseStrategy
+TextTransformer --> Rot13Strategy
+TextTransformer --> LeetStrategy
+
+'@enduml'

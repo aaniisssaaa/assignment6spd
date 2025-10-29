@@ -50,12 +50,34 @@ python -m src.strategy_pattern.cli --strategy upper "hello world"
 ## UML Diagram
 ![Strategy Pattern UML Diagram](uml/diagram.png)
 
-The UML class diagram shows the Strategy pattern implementation with:
+### PlantUML Source Code:
+```plantuml
+@startuml
+title Strategy pattern — TextTransformer
+
+interface TextStrategy {
+  +transform(text: String): String
+}
+
+class UpperCaseStrategy
+class ReverseStrategy  
+class Rot13Strategy
+class LeetStrategy
+class TextTransformer
+
+TextTransformer ..|> TextStrategy : uses
+TextTransformer o-- "1" TextStrategy : strategy
+TextTransformer --> UpperCaseStrategy
+TextTransformer --> ReverseStrategy
+TextTransformer --> Rot13Strategy
+TextTransformer --> LeetStrategy
+@enduml
+```
+
+The diagram shows:
 - `TextStrategy` interface defining the contract
 - Four concrete strategy implementations
 - `TextTransformer` context class that uses strategies
-
-Source PlantUML file is available in `uml/diagram.puml`.
 
 ## Key Design Benefits
 - **Extensibility**: New strategies can be added without modifying existing code

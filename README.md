@@ -48,7 +48,14 @@ python -m src.strategy_pattern.cli --strategy upper "hello world"
 ```
 
 ## UML Diagram
-The UML class diagram is available in `uml/diagram.puml` and can be rendered using PlantUML tools or online services.
+![Strategy Pattern UML Diagram](uml/diagram.png)
+
+The UML class diagram shows the Strategy pattern implementation with:
+- `TextStrategy` interface defining the contract
+- Four concrete strategy implementations
+- `TextTransformer` context class that uses strategies
+
+Source PlantUML file is available in `uml/diagram.puml`.
 
 ## Key Design Benefits
 - **Extensibility**: New strategies can be added without modifying existing code
